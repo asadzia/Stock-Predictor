@@ -1,6 +1,7 @@
 import requests, os
 import pandas as pd
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv()
 API_KEY = os.getenv("ALPHAVANTAGE_API_KEY")
@@ -17,6 +18,7 @@ def fetch_daily_stock_data(symbol, outputsize="compact"):
 
     response = requests.get(url, params=params)
     data = response.json()
+    st.write(data)
 
     if "Time Series (Daily)" not in data:
         raise ValueError("Error fetching data from Alpha Vantage.")

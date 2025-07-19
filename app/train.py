@@ -9,11 +9,11 @@ from src.features import generate_features
 from src.model_train import train_model
 
 if __name__ == "__main__":
-    ticker = "AAPL"  # later replace with argparse input
+    ticker = "AAPL"  # TODO: later replace with argparse input for other stocks.
     df_raw = fetch_daily_stock_data(ticker)
     df_feat = generate_features(df_raw)
 
     rmse, model_path = train_model(df_feat, ticker)
-    print(f"✅ Training completed for {ticker}")
-    print(f"📦 Model saved to: {model_path}")
-    print(f"📉 RMSE: {rmse:.4f}")
+    print(f"Training completed for {ticker}")
+    print(f"Model saved to: {model_path}")
+    print(f"RMSE: {rmse:.4f}")
